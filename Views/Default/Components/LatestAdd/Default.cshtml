@@ -1,0 +1,55 @@
+﻿@model List<Product>
+
+
+<section class="LatestAdd my-4 mt-5">
+    <div class="container">
+        <h2 class="text-center">Son Eklenen Ürünler</h2>
+        <p class="subtitle text-center mb-4">Kaliteli ve En hesaplı Elektronik ürünler</p>
+
+        <div class="row justify-content-center g-3">
+            @foreach (var product in Model)
+            {
+                <div class="col-12 col-md-4 col-lg-3">
+                    <a class="card text-center " href="/Default/Detail/@product.Id">
+                        <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name">
+                        <div class="card-body p-2 d-flex flex-column justify-content-between">
+                            <h5 class="card-title mb-2" style="font-size: 0.95rem;">@product.Name</h5>
+                        </div>
+                    </a>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>
+
+<style>
+    .LatestAdd .card {
+        height: 100%; /* Kartın kolonun tamamını kaplamasını sağlar */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #fff;
+    }
+
+        .LatestAdd .card img {
+            width: 100%;
+            height: 180px; /* Sabit yükseklik */
+            object-fit: contain; /* Resim kesilmeden sığar */
+            background-color: #f7f7f7; /* Resim küçükse arka plan rengi */
+        }
+
+    .LatestAdd .card-body {
+        flex: 1; /* Kartın alt kısmı da eşit yükseklikte olsun */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+    }
+
+</style>

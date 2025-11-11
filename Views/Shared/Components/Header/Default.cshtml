@@ -1,0 +1,39 @@
+﻿@model saglik.Models.Home
+
+<div class="container">
+    <div class="top-bar">
+        <a href="/" class="logo">@Model.Title </a>
+
+
+        <div class="contact-info">
+
+            @if (!string.IsNullOrEmpty(Model?.Phone))
+            {
+                <a href="tel:@(Model.Phone?.Replace(" ", ""))" class="phone-number d-none d-md-inline">
+                    <i class="fas fa-phone-alt "></i>
+                    @Model.Phone
+                </a>
+            }
+
+
+            <div class="mobil-navbar ">
+                <button class="btn btn-outline-secondary" data-bs-toggle="offcanvas"
+                        data-bs-target="#mobileMenu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-bar">
+        <div class="search-box">
+            <form method="get" action="/products/search" class="d-flex" style="width: 100%;">
+                <input type="text" name="q" placeholder="Aradığınız ürünü yazınız..." class="form-control me-2" />
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+</div>

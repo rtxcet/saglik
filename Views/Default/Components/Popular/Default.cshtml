@@ -1,0 +1,68 @@
+﻿@model List<PopularCategoryViewModel>
+
+@foreach (var group in Model)
+{
+    <section class="populer-section mt-4" id="populer-@group.CategoryName.Replace(" ", "-").ToLower()">
+        <div class="container">
+            <div class="populer-header d-flex justify-content-between align-items-center">
+                <span class="card-title text-success">@group.CategoryName</span>
+                <div class="populer-buttons">
+                    <button class="slider-btn left" data-target="@group.CategoryName.Replace(" ", "-").ToLower()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn right" data-target="@group.CategoryName.Replace(" ", "-").ToLower()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card-slider mt-3 overflow-auto d-flex gap-3" id="slider-@group.CategoryName.Replace(" ", "-").ToLower()">
+                @foreach (var item in group.Products)
+                {
+                    <a href="/Default/Detail/@item.Id" class="card">
+                        <img src="@item.ImageUrl" class="card-img-top" alt="@item.Name">
+                        <div class="card-body">
+                            <h5 class="card-title mt-2">@item.Name</h5>
+
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </section>
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const scrollAmount = 300; // İstediğin kadar sağa-sola kaydırır
+
+        const leftButtons = document.querySelectorAll(".slider-btn.left");
+        const rightButtons = document.querySelectorAll(".slider-btn.right");
+
+        leftButtons.forEach(btn => {
+            btn.addEventListener("click", function () {
+                const target = btn.getAttribute("data-target");
+                const slider = document.querySelector(`#slider-${target}`);
+                if (slider) {
+                    slider.scrollBy({
+                        left: -scrollAmount,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+
+        rightButtons.forEach(btn => {
+            btn.addEventListener("click", function () {
+                const target = btn.getAttribute("data-target");
+                const slider = document.querySelector(`#slider-${target}`);
+                if (slider) {
+                    slider.scrollBy({
+                        left: scrollAmount,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    });
+</script>

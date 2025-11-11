@@ -1,0 +1,27 @@
+﻿<!-- Mobil Sidebar -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+        <a href="/" class="logo">@ViewBag.HomeTitle</a>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="list-unstyled">
+            <li>
+                <a href="/" class="text-decoration-none active">Ana Sayfa</a>
+            </li>
+
+            @if (ViewBag.Categories != null)
+            {
+                foreach (var category in ViewBag.Categories)
+                {
+                    <li>
+                        <a href="/kategori/@category.Id"
+                           class="text-decoration-none">
+                            @category.Title
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+﻿@model saglik.Models.Home
+
+<title>@Model?.Title</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+@if (!string.IsNullOrEmpty(Model?.Maps))
+{
+    @Html.Raw(Model.Maps)
+}
+
+@if (!string.IsNullOrEmpty(Model?.GoogleTag))
+{
+    @Html.Raw(Model.GoogleTag)
+}

@@ -1,0 +1,32 @@
+﻿@model List<saglik.Models.Product>
+
+
+@if (!Model.Any())
+{
+	<div class="container">
+		<p>Sonuç bulunamadı.</p>
+	</div>
+}
+else
+{
+	<section class="LatestAdd my-4">
+		<div class="container">
+
+			<h2 class="mb-2">Arama Sonuçları</h2>
+
+			<div class="row justify-content-center g-3">
+				@foreach (var product in Model)
+				{
+					<div class="col-12 col-md-4 col-lg-3">
+						<a href="/Default/Detail/@product.Id" class="card text-center ">
+							<img src="@product.ImageUrl" class="card-img-top" alt="@product.Name">
+							<div class="card-body p-2 d-flex flex-column justify-content-between">
+								<h5 class="card-title mb-2" style="font-size: 0.95rem;">@product.Name</h5>
+							</div>
+						</a>
+					</div>
+				}
+			</div>
+		</div>
+	</section>
+}

@@ -1,0 +1,43 @@
+﻿<section class="contact-map-section">
+    <div class="container">
+        <div class="row g-4 align-items-stretch">
+            <!-- Google Maps -->
+            <div class="col-md-6">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.5011464077857!2d28.9879968!3d41.058037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7700e770013%3A0x9b8e4cf912b3d04a!2zU0HEnkxJSyBHxLBZxLBNIMWeacWfbGkg4oCiIERva3RvciAmIEhlbcWfaXJlIEZvcm1hc8Sx!5e0!3m2!1sen!2str!4v1762810120342!5m2!1sen!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <!-- Contact Form -->
+            <div id="contact" class="col-md-6">
+                <div class="contact-form">
+                    <h4 class="mb-4 text-center">Bize Ulaşın</h4>
+
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["Success"]</div>
+                    }
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger">@TempData["Error"]</div>
+                    }
+
+
+                    <form asp-action="SubmitForm" asp-controller="Contact" method="post">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Adı Soyadı</label>
+                            <input name="Name" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefon</label>
+                            <input name="Phone" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Mesaj</label>
+                            <textarea name="Description" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn w-100" style="background-color:#40E0D0;color:White">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

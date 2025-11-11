@@ -1,0 +1,58 @@
+﻿@model saglik.Models.Home
+
+<footer class="footer bg-dark text-white pt-5 pb-4 mt-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Logo & Açıklama -->
+            <div class="col-lg-4 offset-lg-1">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="fw-bold text-white fs-4">  @Model?.Title  </span>
+                </div>
+                <p class="text-muted small">
+                    @Model?.Description
+                </p>
+            </div>
+
+            <!-- Ödeme Bilgileri -->
+            <div class="col-lg-2 offset-lg-1">
+                <h5 class="text-white mb-3">Ödeme Bilgileri</h5>
+                <ul class="list-unstyled text-muted small">
+                    <li>Kredi Kartı</li>
+                    <li>Banka Havalesi</li>
+                    <li>Kapıda Ödeme</li>
+                </ul>
+            </div>
+
+            <!-- İletişim -->
+            <div class="col-lg-3 offset-lg-1">
+                <h5 class="text-white mb-3">İletişim</h5>
+                <p class="text-muted small mb-1">
+                    <i class="fas fa-phone me-2"></i>
+                    <a class="text-white text-decoration-none" href="tel:@(Model.Phone?.Replace(" ", ""))">@Model?.Phone</a>
+                </p>
+                <p class="text-muted small mb-1">
+                    <i class="fas fa-envelope me-2"></i>
+                    <a class="text-white text-decoration-none" href="mailto:@Model?.Mail">@Model.Mail</a>
+                </p>
+                <p class="text-muted small mb-0">
+                    <i class="fas fa-map-marker-alt me-2"></i>
+                    @Model.Adress
+                </p>
+            </div>
+        </div>
+
+        <hr class="border-light my-4">
+
+        <div class="text-center text-muted small">
+            © @DateTime.Now.Year @Model.Title Tüm Hakları Saklıdır.
+        </div>
+    </div>
+</footer>
+
+<a href="tel:@(Model.Phone?.Replace(" ", ""))" class="floating-icon phone-icon">
+    <i class="fas fa-phone-alt"></i>
+</a>
+
+<a href="https://wa.me/9@(@Model.WhattsapPhone?.Replace(" ", ""))" target="_blank" class="floating-icon whatsapp-icon">
+    <i class="fab fa-whatsapp"></i>
+</a>

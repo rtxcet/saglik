@@ -1,0 +1,643 @@
+﻿:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --accent-color: #f093fb;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --gradient-hover: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+}
+ 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    touch-action: manipulation;
+}
+
+.container {
+    max-width: 1110px !important;
+    margin: 0 auto;
+    width: 98%;
+}
+
+
+
+a {
+    text-decoration: none !important;
+}
+
+/* Slogan */
+
+.top-banner {
+    background-color: #40E0D0;
+    color: white;
+    padding: 6px 0;
+    font-weight: bold;
+    font-size: 16px;
+    overflow: hidden;
+    position: relative;
+    height: 40px;
+    user-select: none;
+}
+
+.marquee {
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+    animation: scrollRight 24s linear infinite;
+    cursor: pointer;
+}
+
+    .marquee p {
+        display: none;
+        margin: 0;
+        padding: 0 10px;
+    }
+
+        .marquee p.active {
+            display: inline-block;
+        }
+
+@keyframes scrollRight {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+/* Slogan Finsih */
+
+
+/* Header Start  */
+header {
+    background-color: #f8f9fa;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky; /* veya fixed */
+    top: 0;
+    z-index: 1000;
+}
+
+header .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+    header .top-bar .logo {
+        color: #40E0D0; /* Mavi renk (Bootstrap mavisi) */
+        font-weight: bold; /* Kalın yazı */
+        font-size: 20px; /* (İsteğe bağlı) yazı boyutu */
+        text-decoration: none; /* Alt çizgiyi kaldırır */
+    }
+
+
+    header .top-bar .contact-info {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+
+        header .top-bar .contact-info a {
+            color: black;
+        }
+
+        header .top-bar .contact-info .phone-number i {
+            color: #40E0D0;
+        }
+
+header .bottom-bar .search-box {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: 0 12px;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+}
+
+    header .bottom-bar .search-box input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 16px;
+        color: #40E0D0;
+    }
+
+    header .bottom-bar .search-box button {
+        background: none;
+        border: none;
+        color: #40E0D0;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    header #mobileMenu {
+        background-color: #f8f9fa; /* Açık gri arka plan (kontrast için) */
+        color: #007bff;
+    }
+
+    header #mobileMenu .offcanvas-header {
+        padding: 0.5rem 1rem;
+    }
+
+    header #mobileMenu .offcanvas-body {
+        padding: 0.5rem 1rem;
+    }
+
+        header #mobileMenu .logo {
+            color: #40E0D0; /* Mavi renk (Bootstrap mavisi) */
+            font-weight: bold; /* Kalın yazı */
+            font-size: 20px; /* (İsteğe bağlı) yazı boyutu */
+            text-decoration: none; /* Alt çizgiyi kaldırır */
+        }
+
+
+
+/* Menü bağlantıları */
+#mobileMenu .offcanvas-header {
+    border-bottom: 1px solid black;
+}
+
+#mobileMenu .offcanvas-body ul li a {
+    display: block;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: #40E0D0;
+    border-bottom: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+    /* Hover ve aktif durum */
+    #mobileMenu .offcanvas-body ul li a:hover,
+    #mobileMenu .offcanvas-body ul li a.active {
+        color: white;
+        background-color: #40E0D0;
+        padding-left: 10px;
+        border-radius: 5px;
+    }
+
+/* Header Finsh  */
+
+/* Slider */
+
+main .hero {
+    margin: 16px 0;
+}
+
+    main .hero .carousel .carousel-inner .carousel-item img {
+        width: 100%;
+        height: 450px;
+        object-fit: contain;
+        object-position: center;
+        background-color: #efeeec; /* Boş kalan alan için nötr arka plan */
+    }
+
+
+    main .hero .carousel .carousel-control-prev .carousel-control-prev-icon {
+        background-color: #40E0D0;
+    }
+
+    main .hero .carousel .carousel-control-next .carousel-control-next-icon {
+        background-color: #40E0D0;
+    }
+
+
+
+
+@media (max-width: 768px) {
+    main .hero {
+        margin: 16px 0;
+    }
+
+        main .hero .carousel .carousel-inner .carousel-item {
+            height: 200px; /* container yüksekliğine uyumlu */
+        }
+
+            main .hero .carousel .carousel-inner .carousel-item img {
+                width: 100%; /* yatayda tam genişlik */
+                height: 100%; /* container yüksekliğine uyumlu */
+            }
+}
+
+/* Slider Finsh */
+
+/* About */
+
+main .hero-service {
+    margin: 16px 0;
+}
+
+    main .hero-service .hero-content {
+        background: #40E0D0;
+        color: white;
+        text-align: center;
+        padding: 120px 20px;
+        position: relative;
+        margin: 0 auto;
+        border-radius: 3px;
+    }
+
+        main .hero-service .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        main .hero-service .hero-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        main .hero-service .hero-content .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+            main .hero-service .hero-content .hero-buttons .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 12px 24px;
+                border-radius: 50px;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                font-size: 1rem;
+            }
+
+            main .hero-service .hero-content .hero-buttons .btn-call {
+                background-color: #ffc107;
+                color: white;
+            }
+
+                main .hero-service .hero-content .hero-buttons .btn-call:hover {
+                    background-color: #e0a800;
+                }
+
+            main .hero-service .hero-content .hero-buttons .btn-whatsapp {
+                background-color: #25D366;
+                color: white;
+            }
+
+                main .hero-service .hero-content .hero-buttons .btn-whatsapp:hover {
+                    background-color: #1ebe5d;
+                }
+
+@media (max-width: 768px) {
+
+    main .hero-service .hero-content {
+        padding: 30px 10px;
+    }
+
+        main .hero-service .hero-content h1 {
+            font-size: 2rem;
+        }
+
+        main .hero-service .hero-content p {
+            font-size: 1rem;
+        }
+
+        main .hero-service .hero-content .hero-buttons {
+            flex-direction: column;
+        }
+
+            main .hero-service .hero-content .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            main .hero-service .hero-content .hero-buttons .btn-call {
+                background-color: #ffc107;
+                color: white;
+            }
+
+                main .hero-service .hero-content .hero-buttons .btn-call:hover {
+                    background-color: #e0a800;
+                }
+
+            main .hero-service .hero-content .hero-buttons .btn-whatsapp {
+                background-color: #25D366;
+                color: white;
+            }
+
+                main .hero-service .hero-content .hero-buttons .btn-whatsapp:hover {
+                    background-color: #1ebe5d;
+                }
+}
+
+
+
+/* About Finsh */
+
+
+/* Youtube */
+
+#youtube iframe {
+    height: 400px;
+}
+
+@media (max-width:768px) {
+    #youtube iframe {
+        height: 225px;
+        width: 100%;
+    }
+}
+
+@media (min-width:768px) {
+    #youtube .container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    #youtube iframe {
+        width: 100% !important;
+        display: block;
+    }
+}
+
+
+/* Youtbe */
+
+/* Populer */
+
+.populer-section .card-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 10px;
+}
+
+
+
+.populer-section .card {
+    background-color: #f8f9fa;
+    color: #28a745;
+    border: 1px solid #dee2e6;
+    padding-bottom: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    /* Shadow eklendi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Hafif geçiş efekti */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 230px !important; /* kart kadar genişlesin */
+    height: 290px;
+    display: block;
+}
+
+    /* Hover efekti */
+    .populer-section .card:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
+
+
+
+.populer-section .card-slider img {
+    width: 100%; /* kart kadar genişlesin */
+    object-fit: contain;
+    object-position: center;
+    background-color: #efeeec; /* Boş kalan alan için nötr arka plan */
+    display: block;
+    height: 80% !important;
+}
+
+
+
+.populer-section .card-body {
+    padding: 0 10px;
+}
+
+    .populer-section .card-body h5 {
+        color: #333333;
+        padding: 0;
+        margin-bottom: 8px;
+        font-size: 16px;
+        opacity: 0.7;
+    }
+
+    .populer-section .card-body i {
+        color: #ff2c55;
+        font-size: 16px;
+    }
+
+    .populer-section .card-body div {
+        margin-bottom: 8px;
+    }
+
+    .populer-section .card-body p {
+        font-size: 16px;
+        color: white;
+    }
+
+@media (max-width: 769px) {
+    .populer-section .card-slider {
+        padding: 0;
+        padding-bottom: 10px
+    }
+
+    .populer-section .card {
+        min-width: 30px;
+        display: block;
+    }
+
+        .populer-section .card img {
+            height: 85% !important;
+        }
+
+    .populer-section .card-body h5 {
+        font-size: 15px;
+    }
+
+    .populer-section .card-body i {
+        color: red;
+        font-size: 12px;
+    }
+
+    .populer-section .card-body div {
+        margin-bottom: 1px;
+    }
+
+    .populer-section .card-body p {
+        font-size: 14px;
+    }
+
+    .populer-section img {
+        min-height: 173px;
+    }
+}
+
+.populer-section .card-slider .card {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    width: 16rem;
+}
+
+.populer-section .card-title {
+    color: blue;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+@media (max-width: 769px) {
+    .populer-section .card-title {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 769px) {
+    .populer-section .card-slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    .populer-section .card-slider {
+        scrollbar-width: auto;
+        -ms-overflow-style: auto;
+    }
+}
+
+/* Ok butonları */
+.populer-section .populer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.populer-section .populer-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.populer-section .slider-btn {
+    background: #40E0D0;
+    color: white;
+    border: 1px solid white;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .populer-section .slider-btn.left {
+        border: 1px solid;
+        margin-right: 5px;
+    }
+
+        .populer-section .slider-btn.left i,
+        .populer-section .slider-btn.right i {
+            font-size: 16px;
+        }
+
+        .populer-section .slider-btn.left:hover,
+        .populer-section .slider-btn.right:hover {
+            background-color: gray;
+        }
+
+    .populer-section .slider-btn.right {
+        border: 1px solid;
+    }
+
+@media (max-width: 769px) {
+    .populer-section .slider-btn {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Populer */
+
+/* Contact */
+.contact-map-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border: none;
+    border-radius: 15px;
+}
+
+.contact-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 768px) {
+    iframe {
+        min-height: 300px;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Footer */
+.footer a:hover {
+    color: #ffc107 !important;
+    transition: 0.3s ease;
+}
+
+.footer ul li::before {
+    content: "• ";
+    color: #dc3545;
+    margin-right: 5px;
+}
+
+.floating-icon {
+    position: fixed;
+    bottom: 10px;
+    z-index: 999;
+    font-size: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+    .floating-icon:hover {
+        transform: scale(1.1);
+    }
+
+.whatsapp-icon {
+    right: 5px;
+    background-color: #25D366;
+}
+
+.phone-icon {
+    left: 5px;
+    background-color: #0d6efd;
+}
+
